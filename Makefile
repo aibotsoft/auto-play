@@ -16,7 +16,7 @@ build:
 
 .PHONY: test
 test:
-	go test  ./... -v -covermode=count -coverprofile=coverage.txt
+	go test  ./... -v -covermode=atomic -coverprofile=coverage.txt
 
 .PHONY: install
 install:
