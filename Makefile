@@ -11,7 +11,12 @@ demo:
 
 .PHONY: build
 build:
+	@echo "Building... " $USERNAME
 	go build -ldflags '$(LDFLAGS)'
+
+.PHONY: test
+test:
+	go test  ./... -v -covermode=count -coverprofile=coverage.txt
 
 .PHONY: install
 install:
