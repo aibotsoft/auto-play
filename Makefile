@@ -11,7 +11,7 @@ demo:
 
 .PHONY: build
 build:
-	@echo "Building... " $USERNAME
+	@echo "Building... " $(USERNAME):$(APPNAME):$(VERSION)
 	go build -ldflags '$(LDFLAGS)'
 
 .PHONY: test
