@@ -26,6 +26,6 @@ release:
 docker-image:
 	docker build -t aibotsoft/auto-play:$(VERSION) -f ./Dockerfile .
 
-#.PHONY: push-docker-image
-#push-docker-image:
-#	docker push cosmtrek/air:$(AIRVER)
+.PHONY: push-docker-image
+push-docker-image:
+	docker push aibotsoft/air:$(VERSION)
