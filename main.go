@@ -8,5 +8,5 @@ func demo() int {
 	return 1
 }
 func main() {
-	fmt.Println("hello")
+	fmt.Println("hello world")
 }
