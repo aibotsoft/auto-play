@@ -1,12 +1,24 @@
 package main
 
 import (
-	"fmt"
+	"go.uber.org/zap"
 )
+
+var appVersion string
+var goVersion string
+var buildTimestamp string
 
 func demo() int {
 	return 1
 }
 func main() {
-	fmt.Println("hello world")
+	log, err := zap.NewDevelopment()
+	if err != nil {
+		panic(err)
+	}
+	log.Info("hello",
+		zap.String("appVersion", appVersion),
+		zap.String("goVersion", goVersion),
+		zap.String("buildTimestamp", buildTimestamp),
+		)
 }

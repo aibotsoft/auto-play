@@ -11,10 +11,9 @@
 
 # STAGE 1: building the executable
 FROM golang:alpine AS build
-
 # git required for go mod
+ARG VERSION
 RUN apk add --no-cache git
-
 # Working directory will be created if it does not exist
 WORKDIR /src
 
@@ -26,10 +25,11 @@ RUN go mod download
 COPY ./ ./
 
 # Build the executable
-RUN CGO_ENABLED=0 go build -ldflags="-w -s" -o /app main.go
+RUN CGO_ENABLED=0 go build -ldflags="-s -w -X main.appVersion=${VERSION}" -o /app main.go
 
 # STAGE 2: build the container to run
-FROM gcr.io/distroless/static AS final
+#FROM gcr.io/distroless/static AS final
+FROM scratch AS final
 
 # copy compiled app
 COPY --from=build /app /app

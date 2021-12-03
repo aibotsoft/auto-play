@@ -1,0 +1,14 @@
+name: check-enviroment
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: check
+        run: |
+          echo "hello"
+
