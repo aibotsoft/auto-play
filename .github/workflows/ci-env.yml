@@ -11,4 +11,10 @@ jobs:
       - name: check
         run: |
           echo "hello"
+          go version
+          docker version
+          helm version
+          kustomize version
+          kubectl version
+          
 
